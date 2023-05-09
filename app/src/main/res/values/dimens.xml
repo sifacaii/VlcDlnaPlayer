@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="btn_width">48dp</dimen>
+    <dimen name="btn_heigth">48dp</dimen>
+    <dimen name="time_width">96dp</dimen>
+    <dimen name="menu_item_width_min">100dp</dimen>
+    <dimen name="menu_item_width_max">300dp</dimen>
+    <dimen name="menu_item_padding">10dp</dimen>
+    <dimen name="menu_item_margin">0dp</dimen>
+    <dimen name="time_fontsize">18dp</dimen>
+    <dimen name="controll_padding_left_right">30dp</dimen>
+    <dimen name="controll_padding_top_bottom">10dp</dimen>
+    <dimen name="btn_marginleft">36dp</dimen>
+    <dimen name="spacing_medium_width">28dp</dimen>
+    <dimen name="spacing_medium_height">16dp</dimen>
+    <dimen name="btn_fontsize">26dp</dimen>
+    <dimen name="title_fontsize">20dp</dimen>
+</resources>

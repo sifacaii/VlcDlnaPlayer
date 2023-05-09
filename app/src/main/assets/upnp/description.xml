@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root xmlns:dlna="urn:schemas-dlna-org:device-1-0" xmlns="urn:schemas-upnp-org:device-1-0">
+    <specVersion>
+        <major>1</major>
+        <minor>0</minor>
+    </specVersion>
+    <device>
+        <friendlyName>VLC投屏播放器</friendlyName>
+        <deviceType>urn:schemas-upnp-org:device:MediaRenderer:1</deviceType>
+        <dlna:X_DLNADOC xmlns:dlna="urn:schemas-dlna-org:device-1-0">DMR-1.50</dlna:X_DLNADOC>
+        <serviceList>
+            <service>
+                <serviceType>urn:schemas-upnp-org:service:AVTransport:1</serviceType>
+                <serviceId>urn:upnp-org:serviceId:AVTransport</serviceId>
+                <controlURL>control</controlURL>
+                <SCPDURL>scpd.xml</SCPDURL>
+                <eventSubURL>event</eventSubURL>
+            </service>
+        </serviceList>
+        <manufacturer>LIBVLC</manufacturer>
+        <manufacturerURL>http://</manufacturerURL>
+        <modelDescription>VLC Media Renderer</modelDescription>
+        <modelName>VLC Media Player</modelName>
+        <modelURL>http://</modelURL>
+        <iconList>
+            <icon>
+                <mimetype>image/png</mimetype>
+                <width>94</width>
+                <height>94</height>
+                <depth>8</depth>
+                <url></url>
+            </icon>
+        </iconList>
+        <UDN>uuid:VLC_DLNA_PLAYER_UPNP_1_0_202305065544</UDN>
+    </device>
+</root>

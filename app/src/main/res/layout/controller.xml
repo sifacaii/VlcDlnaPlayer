@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/controll_padding_left_right"
+    android:paddingTop="@dimen/controll_padding_top_bottom"
+    android:paddingRight="@dimen/controll_padding_left_right"
+    android:paddingBottom="@dimen/controll_padding_top_bottom">
+
+    <LinearLayout
+        android:id="@+id/container_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:background="@color/controll_background">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="8dp"
+            android:singleLine="true"
+            android:text="fsdjsfd"
+            android:textColor="@color/time_fontcolor"
+            android:textSize="@dimen/title_fontsize" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/container_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/controll_background"
+        android:orientation="vertical"
+        android:padding="18dp">
+
+        <LinearLayout
+            android:id="@+id/container_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/spacer_medium"
+            android:gravity="center"
+            android:showDividers="middle">
+
+            <ImageButton
+                android:id="@+id/prev"
+                android:layout_width="@dimen/btn_width"
+                android:layout_height="@dimen/btn_heigth"
+                android:background="@drawable/popmenu_focus"
+                android:scaleType="fitXY"
+                android:src="@android:drawable/ic_media_previous" />
+
+            <ImageButton
+                android:id="@+id/rew"
+                android:layout_width="@dimen/btn_width"
+                android:layout_height="@dimen/btn_heigth"
+                android:background="@drawable/popmenu_focus"
+                android:scaleType="fitXY"
+                android:src="@android:drawable/ic_media_rew" />
+
+            <ImageButton
+                android:id="@+id/pause"
+                android:layout_width="@dimen/btn_width"
+                android:layout_height="@dimen/btn_heigth"
+                android:background="@drawable/popmenu_focus"
+                android:scaleType="fitXY"
+                android:src="@android:drawable/ic_media_play" />
+
+            <ImageButton
+                android:id="@+id/ffwd"
+                android:layout_width="@dimen/btn_width"
+                android:layout_height="@dimen/btn_heigth"
+                android:background="@drawable/popmenu_focus"
+                android:scaleType="fitXY"
+                android:src="@android:drawable/ic_media_ff" />
+
+            <ImageButton
+                android:id="@+id/next"
+                android:layout_width="@dimen/btn_width"
+                android:layout_height="@dimen/btn_heigth"
+                android:background="@drawable/popmenu_focus"
+                android:scaleType="fitXY"
+                android:src="@android:drawable/ic_media_next" />
+
+            <TextView
+                android:id="@+id/rate"
+                android:layout_width="@dimen/btn_width"
+                android:layout_height="@dimen/btn_heigth"
+                android:background="@drawable/popmenu_focus"
+                android:gravity="center"
+                android:textSize="@dimen/btn_fontsize"
+                android:textColor="@color/btn_fontcolor"
+                android:text="1x"
+                android:focusable="true" />
+
+            <ImageButton
+                android:id="@+id/scale"
+                android:layout_width="@dimen/btn_width"
+                android:layout_height="@dimen/btn_heigth"
+                android:background="@drawable/popmenu_focus"
+                android:scaleType="fitXY"
+                android:src="@android:drawable/ic_menu_crop" />
+
+            <TextView
+                android:id="@+id/audiotrack"
+                android:layout_width="@dimen/btn_width"
+                android:layout_height="@dimen/btn_heigth"
+                android:background="@drawable/popmenu_focus"
+                android:gravity="center"
+                android:textSize="@dimen/btn_fontsize"
+                android:textColor="@color/btn_fontcolor"
+                android:text="音"
+                android:focusable="true" />
+
+            <TextView
+                android:id="@+id/subtitletrack"
+                android:layout_width="@dimen/btn_width"
+                android:layout_height="@dimen/btn_heigth"
+                android:background="@drawable/popmenu_focus"
+                android:gravity="center"
+                android:textSize="@dimen/btn_fontsize"
+                android:textColor="@color/btn_fontcolor"
+                android:text="字"
+                android:focusable="true" />
+
+            <ImageButton
+                android:id="@+id/playlist"
+                android:layout_width="@dimen/btn_width"
+                android:layout_height="@dimen/btn_heigth"
+                android:background="@drawable/popmenu_focus"
+                android:scaleType="fitXY"
+                android:src="@android:drawable/ic_menu_agenda" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/container_progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/time_current"
+                android:layout_width="@dimen/time_width"
+                android:layout_height="@dimen/btn_heigth"
+                android:gravity="center"
+                android:text="00:00"
+                android:textColor="@color/time_fontcolor"
+                android:textSize="@dimen/time_fontsize" />
+
+            <ProgressBar
+                android:id="@+id/mediacontroller_progress"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/btn_heigth"
+                android:layout_weight="1"
+                android:background="@drawable/popmenu_focus"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:max="1000" />
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="@dimen/time_width"
+                android:layout_height="@dimen/btn_heigth"
+                android:gravity="center"
+                android:text="00:00"
+                android:textColor="@color/time_fontcolor"
+                android:textSize="@dimen/time_fontsize" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/img_pause"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_gravity="center"
+        android:scaleType="fitXY"
+        android:src="@android:drawable/ic_media_pause"
+        android:visibility="gone"/>
+
+    <ProgressBar
+        android:id="@+id/buffer_Progress"
+        style="@android:style/Widget.Holo.ProgressBar"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_gravity="center" />
+
+    <LinearLayout
+        android:id="@+id/container_seek"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|top"
+        android:layout_marginTop="48dp"
+        android:background="@color/controll_background"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/seek_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="00:00:00/00:00:00"
+            android:textColor="@color/time_fontcolor"
+            android:textSize="24dp" />
+
+        <ProgressBar
+            android:id="@+id/seek_progress"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="1000"
+            android:progress="600" />
+
+    </LinearLayout>
+</FrameLayout>

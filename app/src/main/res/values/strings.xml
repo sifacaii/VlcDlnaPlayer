@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">VLCPlayer</string>
+    <string name="mainpage_tip">开始接收投屏请求</string>
+</resources>
