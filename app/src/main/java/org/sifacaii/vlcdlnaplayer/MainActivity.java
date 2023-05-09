@@ -10,6 +10,8 @@ import android.util.Log;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.orhanobut.hawk.Hawk;
+
 import org.sifacaii.vlcdlnaplayer.dlna.AVTransport;
 import org.sifacaii.vlcdlnaplayer.dlna.SSDP;
 import org.sifacaii.vlcdlnaplayer.vlcplayer.Player;
@@ -37,10 +39,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void init() {
+        Hawk.init(getApplicationContext()).build();
         SSDP ssdp = new SSDP(this);
         AVTransport avTransport = AVTransport.getInstance(this);
         avTransport.setPlayerControl(playerControl);
         ssdp.start();
+    }
+
+    protected void initParams(){
+
     }
 
     protected AVTransport.PlayerControl playerControl = new AVTransport.PlayerControl() {
