@@ -6,10 +6,52 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textview_logs"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <CheckBox
+            android:id="@+id/box_hacc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableEnd="?android:attr/listChoiceIndicatorMultiple"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="启用硬件加速"
+            android:focusable="true"
+            android:background="@drawable/popmenu_focus"
+            android:minHeight="?android:attr/listPreferredItemHeightSmall"
+            android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+            android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+            android:textAppearance="?android:attr/textAppearanceListItemSmall" />
+
+        <CheckBox
+            android:id="@+id/box_forcehacc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableEnd="?android:attr/listChoiceIndicatorMultiple"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="启用强制硬件加速"
+            android:focusable="true"
+            android:background="@drawable/popmenu_focus"
+            android:minHeight="?android:attr/listPreferredItemHeightSmall"
+            android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+            android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+            android:textAppearance="?android:attr/textAppearanceListItemSmall" />
+
+
+        <TextView
+            android:id="@+id/textview_logs"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+
 
     <FrameLayout
         android:id="@+id/play_container"

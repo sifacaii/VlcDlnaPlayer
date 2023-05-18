@@ -33,7 +33,7 @@ public class AVTransport extends NanoHTTPD {
         try {
             avTransport.start();
         } catch (IOException e) {
-            Log.e("CONTROL", "getInstance: ", e);
+            //Log.e("CONTROL", "getInstance: ", e);
             return null;
         }
         return avTransport;
@@ -83,7 +83,7 @@ public class AVTransport extends NanoHTTPD {
     }
 
     private String MediaControl(String soapaction, String xml) {
-        Log.d(TAG, "MediaControl_" + soapaction + ": " + xml);
+        //Log.d(TAG, "MediaControl_" + soapaction + ": " + xml);
         if (playerControl == null) return "";
         if (xml == null || xml.length() < 1) return "";
 
@@ -130,7 +130,7 @@ public class AVTransport extends NanoHTTPD {
                 playerControl.Stop();
                 break;
         }
-        Log.d(TAG, "MediaControl_rsp: " + rsp);
+        //Log.d(TAG, "MediaControl_rsp: " + rsp);
         return rsp;
     }
 

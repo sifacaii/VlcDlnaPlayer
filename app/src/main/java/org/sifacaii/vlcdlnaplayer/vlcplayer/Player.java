@@ -4,6 +4,8 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.widget.FrameLayout;
 import android.widget.MediaController;
 
@@ -164,6 +166,14 @@ public class Player extends VLCVideoLayout implements MediaPlayer.EventListener,
         }
     }
 
+    public ArrayList<Video> getPlayList() {
+        return new ArrayList<>();
+    }
+
+    public int getPlayIndex(){
+        return 0;
+    }
+
     @Override
     public void start() {
         if (mMediaPlayer.hasMedia()) {
@@ -261,4 +271,11 @@ public class Player extends VLCVideoLayout implements MediaPlayer.EventListener,
         if (speed != getSpeed()) mMediaPlayer.setRate(speed);
     }
 
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if(mController != null){
+            return mController.dispatchKeyEvent(event);
+        }
+        return super.dispatchKeyEvent(event);
+    }
 }

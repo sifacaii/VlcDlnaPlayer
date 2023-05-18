@@ -22,6 +22,8 @@ import androidx.annotation.RequiresApi;
 import org.sifacaii.vlcdlnaplayer.R;
 import org.videolan.libvlc.MediaPlayer;
 
+import java.util.ArrayList;
+
 public class Controller extends FrameLayout implements View.OnClickListener {
     private String TAG = "播放器控制器";
 
@@ -164,7 +166,7 @@ public class Controller extends FrameLayout implements View.OnClickListener {
         MediaPlayer.TrackDescription[] audioTracks = player.getAudioSessions();
         if (mAudioButton != null && audioTracks != null) {
             mAudioMenu = new PopMenuP(mContext, mAudioButton);
-            for (int i = 0;i<audioTracks.length;i++) {
+            for (int i = 0; i < audioTracks.length; i++) {
                 mAudioMenu.add(mAudioButton.getId(), audioTracks[i].id, i, audioTracks[i].name);
             }
             if (mAudioMenu.size() > 0) {
@@ -178,13 +180,15 @@ public class Controller extends FrameLayout implements View.OnClickListener {
                     }
                 });
             }
+        }else{
+            mAudioButton.setVisibility(GONE);
         }
 
         //字幕
         MediaPlayer.TrackDescription[] subtitleTracks = player.getSubtitleSessions();
         if (mSubtitleButton != null && subtitleTracks != null) {
             mSubtitleMenu = new PopMenuP(mContext, mSubtitleButton);
-            for (int i=0;i<subtitleTracks.length;i++) {
+            for (int i = 0; i < subtitleTracks.length; i++) {
                 mSubtitleMenu.add(mSubtitleButton.getId(), subtitleTracks[i].id, i, subtitleTracks[i].name);
             }
             if (mSubtitleMenu.size() > 0) {
@@ -198,25 +202,31 @@ public class Controller extends FrameLayout implements View.OnClickListener {
                     }
                 });
             }
+        }else{
+            mSubtitleButton.setVisibility(GONE);
         }
 
         // 播放列表
-//        ArrayList<Video> playlist = player.getPlayList();
-//        if (mPlayListButton != null && playlist.size() > 0) {
-//            mPlayListMenu = new PopMenuP(mContext, mPlayListButton);
-//            for (int i = 0; i < playlist.size(); i++) {
-//                mPlayListMenu.add(mPlayListButton.getId(), i, i, i + playlist.get(i).Name);
-//            }
-//            if (mPlayListMenu.size() > 0) {
-//                mPlayListMenu.setOnDismissListener(popupMenuDismissListener);
-//                mPlayListMenu.setOnItemClickListener(new PopMenuP.OnItemClickListener() {
-//                    @Override
-//                    public void onClick(PopMenuP.menu m) {
-//                        if (m.id != player.getPlayIndex()) player.start(m.id);
-//                    }
-//                });
-//            }
-//        }
+        ArrayList<Video> playlist = player.getPlayList();
+        if (mPlayListButton != null && playlist.size() > 1) {
+            mPlayListMenu = new PopMenuP(mContext, mPlayListButton);
+            for (int i = 0; i < playlist.size(); i++) {
+                mPlayListMenu.add(mPlayListButton.getId(), i, i, i + playlist.get(i).Name);
+            }
+            if (mPlayListMenu.size() > 0) {
+                mPlayListMenu.setOnDismissListener(popupMenuDismissListener);
+                mPlayListMenu.setOnItemClickListener(new PopMenuP.OnItemClickListener() {
+                    @Override
+                    public void onClick(PopMenuP.menu m) {
+                        //if (m.id != player.getPlayIndex()) player.start(m.id);
+                    }
+                });
+            }
+        }else {
+            mPlayListButton.setVisibility(GONE);
+            mNextButton.setVisibility(GONE);
+            mPrevButton.setVisibility(GONE);
+        }
 
         String title = player.getCurrentVideo().Name;
         if (!mTitle.equals("")) {
@@ -249,9 +259,11 @@ public class Controller extends FrameLayout implements View.OnClickListener {
             player.start();
             updatePausePlay();
         } else if (id == mFfwdButton.getId()) {
-            player.seekTo(player.getCurrentPosition() - 10000);
+            int pos = player.getCurrentPosition() + 10000;
+            player.seekTo(pos);
         } else if (id == mRewButton.getId()) {
-            player.seekTo(player.getCurrentPosition() + 10000);
+            int pos = player.getCurrentPosition() - 10000;
+            player.seekTo(pos);
         } else if (id == mNextButton.getId()) {
             //player.nextVideo();
         } else if (id == mPrevButton.getId()) {
@@ -376,10 +388,10 @@ public class Controller extends FrameLayout implements View.OnClickListener {
         }
     }
 
-    public void pauseImgShowOrHide(Boolean show){
-        if(show){
+    public void pauseImgShowOrHide(Boolean show) {
+        if (show) {
             findViewById(R.id.img_pause).setVisibility(VISIBLE);
-        }else{
+        } else {
             findViewById(R.id.img_pause).setVisibility(GONE);
         }
     }
