@@ -20,11 +20,16 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            ndk {
-                abiFilters "armeabi-v7a" , "x86"
-            }
         }
     }
+
+    splits {
+        abi {
+            enable true
+            include 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

@@ -485,7 +485,6 @@ public class Controller extends FrameLayout implements View.OnClickListener {
                 case KeyEvent.KEYCODE_BACK:
                     player.stop();
             }
-            return true;
         }
         if (action == KeyEvent.ACTION_UP) {
             if (keycode == KeyEvent.KEYCODE_DPAD_RIGHT || keycode == KeyEvent.KEYCODE_DPAD_LEFT) {
@@ -493,9 +492,8 @@ public class Controller extends FrameLayout implements View.OnClickListener {
                     tvSlideStop();
                 }
             }
-            return true;
         }
-        return true;
+        return super.dispatchKeyEvent(event);
     }
 }
 
