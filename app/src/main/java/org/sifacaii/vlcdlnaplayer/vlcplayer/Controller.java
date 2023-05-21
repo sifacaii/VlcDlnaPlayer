@@ -478,6 +478,7 @@ public class Controller extends FrameLayout implements View.OnClickListener {
         if (action == KeyEvent.ACTION_DOWN) {
             switch (keycode) {
                 case KeyEvent.KEYCODE_ENTER:
+                case KeyEvent.KEYCODE_DPAD_CENTER:
                     playORpause();
                     break;
                 case KeyEvent.KEYCODE_DPAD_UP:
@@ -492,6 +493,7 @@ public class Controller extends FrameLayout implements View.OnClickListener {
                     break;
                 case KeyEvent.KEYCODE_BACK:
                     player.stop();
+                    break;
             }
         }
         if (action == KeyEvent.ACTION_UP) {
