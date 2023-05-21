@@ -252,12 +252,21 @@ public class Controller extends FrameLayout implements View.OnClickListener {
         }
     };
 
+    public void playORpause(){
+        if(player==null) return;
+        if(player.isPlaying()){
+            player.pause();
+        }else{
+            player.start();
+        }
+        updatePausePlay();
+    }
+
     @Override
     public void onClick(View v) {
         int id = v.getId();
         if (id == mPauseButton.getId()) {
-            player.start();
-            updatePausePlay();
+            playORpause();
         } else if (id == mFfwdButton.getId()) {
             int pos = player.getCurrentPosition() + 10000;
             player.seekTo(pos);
@@ -469,8 +478,7 @@ public class Controller extends FrameLayout implements View.OnClickListener {
         if (action == KeyEvent.ACTION_DOWN) {
             switch (keycode) {
                 case KeyEvent.KEYCODE_ENTER:
-                    player.start();
-                    updatePausePlay();
+                    playORpause();
                     break;
                 case KeyEvent.KEYCODE_DPAD_UP:
                 case KeyEvent.KEYCODE_DPAD_DOWN:
